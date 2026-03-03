@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Global Divide</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Study Notes: The Global Divide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light slate background */
+            color: #334155;
+        }
+        
+        .serif-text {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Key Term Styling */
+        .key-term {
+            color: #2563eb; /* Blue-600 */
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px dotted #93c5fd;
+            transition: all 0.2s ease;
+            user-select: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        .key-term:hover {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .key-term.active {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border-bottom-style: solid;
+        }
+
+        /* Tooltip Animation */
+        #definition-tooltip {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none; /* Let clicks pass through when hidden */
+            z-index: 50;
+        }
+
+        /* Card Hover Effects */
+        .example-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .example-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fade In Animation */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-blue-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                </div>
+                <span class="font-bold text-slate-800 tracking-tight text-lg">StudyNotes<span class="text-blue-600">.io</span></span>
+            </div>
+            <div class="text-sm text-slate-500 hidden sm:block">
+                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium border border-blue-100">Social Studies</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-3xl mx-auto px-6 py-12 w-full">
+        
+        <!-- Header Section -->
+        <header class="mb-12 text-center fade-in-up">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 serif-text tracking-tight">The Global Divide</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Understanding the inequalities that shape our world through interactive exploration.
+            </p>
+            <div class="mt-6 flex justify-center">
+                <div class="flex items-center gap-2 text-xs text-slate-400 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                    </svg>
+                    <span>Click & Hold highlighted words for definitions</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 mb-10 fade-in-up delay-100 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1 h-full bg-blue-500 transition-all duration-300 group-hover:h-full h-0"></div>
+            <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-600 p-1.5 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                    </svg>
+                </span>
+                Definition
+            </h2>
+            <p class="text-slate-600 leading-8 text-lg text-justify">
+                The <span class="key-term" data-definition="The differences or gaps between countries or regions around the world.">global divide</span> refers to the differences or gaps between countries or regions around the world, often in terms of <span class="key-term" data-definition="The total value of money and assets a person or country possesses.">wealth</span>, <span class="key-term" data-definition="The application of scientific knowledge for practical purposes, especially in industry.">technology</span>, <span class="key-term" data-definition="The process of receiving or giving systematic instruction, especially at a school or university.">education</span>, or <span class="key-term" data-definition="Chances for advancement or progress in life.">opportunities</span>. In simple terms, some places have more resources or advantages than others. For example, some countries have advanced technology while others have less access to it. When we talk about the global divide, we’re often discussing <span class="key-term" data-definition="Differences in status, wealth, or opportunities within a society.">inequalities</span> between richer and poorer parts of the world.
+            </p>
+        </section>
+
+        <!-- Examples Grid -->
+        <section class="mb-12 fade-in-up delay-200">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 pl-2 border-l-4 border-blue-500">Real World Examples</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Example 1 -->
+                <div class="example-card bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">Internet Access</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        In <span class="key-term" data-definition="A country in East Asia known for its high-tech industry and fast internet speeds.">South Korea</span>, over 95% of the population has high-speed internet. Meanwhile, in rural areas of <span class="key-term" data-definition="The region of the African continent south of the Sahara Desert.">sub-Saharan Africa</span>, internet penetration can be under 30%, with some communities having no connectivity at all.
+                    </p>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-card bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 bg-rose-50 text-rose-600 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">Healthcare</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        The <span class="key-term" data-definition="A country in North America with advanced medical technology.">United States</span> and <span class="key-term" data-definition="A country in Central Europe with a strong social welfare system.">Germany</span> have advanced healthcare systems with high-quality hospitals and specialists. In contrast, <span class="key-term" data-definition="A Caribbean country that has faced significant natural disasters and economic challenges.">Haiti</span> struggles with limited medical facilities, and many people lack access to essential services.
+                    </p>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-card bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.499 5.221 69.616 69.616 0 00-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">Education</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        In <span class="key-term" data-definition="A Nordic country known for having one of the best education systems in the world.">Finland</span>, students benefit from a well-funded public education system, whereas in <span class="key-term" data-definition="A landlocked country in South Asia that has faced decades of conflict.">Afghanistan</span>, many children, especially girls, may not have access to basic schooling due to conflict and lack of resources.
+                    </p>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="example-card bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">Economic Opportunities</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        In the <span class="key-term" data-definition="A political and economic union of 27 European countries.">European Union</span>, workers often have access to stable jobs, benefits, and social safety nets. In contrast, in parts of <span class="key-term" data-definition="A region of the southernmost portion of North America, connecting to South America.">Central America</span>, limited job opportunities drive migration in search of better livelihoods.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- North vs South -->
+        <section class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white shadow-xl mb-12 fade-in-up delay-300 relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-emerald-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 relative z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                </svg>
+                The "North" and "South"
+            </h2>
+
+            <div class="relative z-10 space-y-6">
+                <p class="text-slate-300 leading-relaxed">
+                    The "North" and "South" are often used to describe this divide. The <span class="key-term text-blue-300 border-blue-400" data-definition="A term used to describe wealthy, industrialized countries, typically in the Northern Hemisphere.">Global North</span> generally refers to wealthier, more industrialized countries, like those in <span class="key-term text-blue-300 border-blue-400" data-definition="The northern continent of the Americas.">North America</span>, <span class="key-term text-blue-300 border-blue-400" data-definition="A continent located entirely in the Northern Hemisphere.">Europe</span>, and parts of <span class="key-term text-blue-300 border-blue-400" data-definition="The eastern subregion of Asia.">East Asia</span>. The <span class="key-term text-emerald-300 border-emerald-400" data-definition="A term often used to describe less economically developed countries, typically in the Southern Hemisphere.">Global South</span> refers to less economically developed regions, often including <span class="key-term text-emerald-300 border-emerald-400" data-definition="A region of the Americas where Romance languages are primarily spoken.">Latin America</span>, <span class="key-term text-emerald-300 border-emerald-400" data-definition="The world's second-largest and second-most populous continent.">Africa</span>, and parts of <span class="key-term text-emerald-300 border-emerald-400" data-definition="The largest continent.">Asia</span>.
+                </p>
+                
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <p class="text-sm text-slate-200 italic">
+                        For example, <span class="key-term text-blue-200 border-blue-300" data-definition="A country in Central Europe with a high standard of living.">Germany</span> (North) has a high <span class="key-term text-blue-200 border-blue-300" data-definition="Gross Domestic Product: The total value of goods produced and services provided in a country.">GDP</span> and advanced infrastructure, while <span class="key-term text-emerald-200 border-emerald-300" data-definition="A landlocked country in Southeast Africa.">Malawi</span> (South) faces challenges in economic development and public services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implications -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 mb-12 fade-in-up delay-300">
+            <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <span class="bg-rose-100 text-rose-600 p-1.5 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>
+                </span>
+                Implications
+            </h2>
+            <p class="text-slate-600 leading-8 text-lg">
+                This global divide perpetuates <span class="key-term" data-definition="The state of not being equal, especially in status, rights, and opportunities.">inequality</span>. People in the Global South may face barriers to education, healthcare, and <span class="key-term" data-definition="The ability to move between different social classes or economic statuses.">economic mobility</span>, reinforcing <span class="key-term" data-definition="The state of being extremely poor.">poverty</span>. It can drive <span class="key-term" data-definition="The movement of people from one place to another, usually for economic or safety reasons.">migration</span>, cause <span class="key-term" data-definition="A state of unrest or dissatisfaction with the current political situation.">political instability</span>, and limit global innovation, as many regions are left behind.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto">
+        <div class="max-w-5xl mx-auto px-6 text-center text-slate-400 text-sm">
+            <p>&copy; 2023 Interactive Study Notes. Created for educational purposes.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Tooltip Definition Box -->
+    <div id="definition-tooltip" class="fixed hidden bg-slate-900 text-white p-4 rounded-xl shadow-2xl max-w-xs text-sm leading-relaxed border border-slate-700 z-50 backdrop-blur-sm bg-opacity-95 transform -translate-x-1/2 -translate-y-full mt-[-10px]">
+        <div class="flex items-start gap-3">
+            <div class="mt-1 min-w-[4px] h-4 bg-blue-500 rounded-full"></div>
+            <div>
+                <span id="tooltip-text" class="block"></span>
+            </div>
+        </div>
+        <!-- Little arrow at bottom -->
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-3 h-3 bg-slate-900 border-r border-b border-slate-700"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltip = document.getElementById('definition-tooltip');
+            const tooltipText = document.getElementById('tooltip-text');
+            const terms = document.querySelectorAll('.key-term');
+            
+            let isHolding = false;
+            let currentTerm = null;
+
+            // Function to show tooltip
+            const showTooltip = (term, event) => {
+                const definition = term.getAttribute('data-definition');
+                if (!definition) return;
+
+                tooltipText.textContent = definition;
+                tooltip.classList.remove('hidden');
+                
+                // Position logic
+                const rect = term.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                
+                // Calculate center of the term
+                let left = rect.left + (rect.width / 2);
+                let top = rect.top - 10; // 10px gap
+
+                // Boundary checks
+                if (left - (tooltipRect.width / 2) < 10) {
+                    left = (tooltipRect.width / 2) + 10;
+                } else if (left + (tooltipRect.width / 2) > window.innerWidth - 10) {
+                    left = window.innerWidth - (tooltipRect.width / 2) - 10;
+                }
+
+                tooltip.style.left = `${left}px`;
+                tooltip.style.top = `${top}px`;
+                
+                // Animation
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translate(-50%, -90%) scale(0.95)';
+                
+                requestAnimationFrame(() => {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.transform = 'translate(-50%, -100%) scale(1)';
+                });
+
+                term.classList.add('active');
+            };
+
+            // Function to hide tooltip
+            const hideTooltip = () => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translate(-50%, -90%) scale(0.95)';
+                
+                setTimeout(() => {
+                    if (!isHolding) {
+                        tooltip.classList.add('hidden');
+                    }
+                }, 200);
+
+                if (currentTerm) {
+                    currentTerm.classList.remove('active');
+                }
+                isHolding = false;
+                currentTerm = null;
+            };
+
+            // Event Listeners for each term
+            terms.forEach(term => {
+                // Mouse Down (Click and Hold)
+                term.addEventListener('mousedown', (e) => {
+                    isHolding = true;
+                    currentTerm = term;
+                    showTooltip(term, e);
+                });
+
+                // Touch Start (Mobile support)
+                term.addEventListener('touchstart', (e) => {
+                    isHolding = true;
+                    currentTerm = term;
+                    showTooltip(term, e);
+                    // Prevent scrolling while holding
+                    // e.preventDefault(); // Optional: might block scrolling if user wants to scroll past
+                }, {passive: true});
+
+                // Mouse Up / Leave
+                term.addEventListener('mouseup', hideTooltip);
+                term.addEventListener('mouseleave', hideTooltip);
+                
+                // Touch End
+                term.addEventListener('touchend', hideTooltip);
+            });
+
+            // Global mouse up to catch releases outside the term
+            document.addEventListener('mouseup', () => {
+                if (isHolding) hideTooltip();
+            });
+            
+            document.addEventListener('touchend', () => {
+                if (isHolding) hideTooltip();
+            });
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
